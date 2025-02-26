@@ -10,15 +10,14 @@ import {
   UserButton,
   useUser,
 } from "@clerk/nextjs";
+import WebsiteLogo from "./WebsiteLogo";
 
 export default function Navbar() {
   const { isSignedIn } = useUser();
   return (
     <div className="border border-b py-4">
       <MaxWidthContainer className="flex-between">
-        <Link href={"/"} className="font-bold text-2xl text-slate-800">
-          Freelancer
-        </Link>
+        <WebsiteLogo />
 
         <div className="flex gap-6 items-center">
           <span className="font-medium text-gray-700 hover:text-gray-700/90 cursor-pointer">

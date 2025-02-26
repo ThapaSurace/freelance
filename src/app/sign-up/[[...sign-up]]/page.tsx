@@ -19,6 +19,8 @@ import { z } from "zod";
 import { signUpFormSchema } from "@/lib/authSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ErrorMessage from "@/components/ErrorMessage";
+import WebsiteLogo from "@/components/WebsiteLogo";
+import Image from "next/image";
 
 type FormData = z.infer<typeof signUpFormSchema>;
 
@@ -78,6 +80,7 @@ export default function Page() {
 
   return (
     <div className="flex min-h-svh flex-col items-center justify-center gap-6 bg-background p-6 md:p-10">
+      <WebsiteLogo containerClass="absolute top-10 left-10" />
       <div className="w-full max-w-md">
         <div className={cn("flex flex-col gap-6")}>
           {!pendingVerification ? (
@@ -134,6 +137,23 @@ export default function Page() {
                     </div>
                     <Button type="submit" className="w-full">
                       {isSubmitting ? "submitting..." : "Sign Up"}
+                    </Button>
+                  </div>
+                  <div className="relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-border">
+                    <span className="relative z-10 bg-background px-2 text-muted-foreground">
+                      Or
+                    </span>
+                  </div>
+                  <div>
+                    <Button variant="outline" className="w-full">
+                      <Image
+                        src={"./svg/google.svg"}
+                        alt="google"
+                        width={20}
+                        height={20}
+                        className="w-[20px] h-[20px]"
+                      />
+                      Continue with Google
                     </Button>
                   </div>
                 </div>
