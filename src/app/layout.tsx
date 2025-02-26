@@ -10,6 +10,7 @@ import {
 } from "@clerk/nextjs";
 import Navbar from "@/components/Navbar";
 import MaxWidthContainer from "@/components/MaxWidthContainer";
+import DynamicNavbar from "@/components/DynamicNavbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,7 +38,7 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <Navbar />
+          <DynamicNavbar />
           <MaxWidthContainer>{children}</MaxWidthContainer>
         </body>
       </html>
